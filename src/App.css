@@ -1,0 +1,383 @@
+
+/* ---------- Global styles ---------- */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color: #1c2922;
+  background: #f3f7f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f3f7f4;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Main layout ---------- */
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 42px 0 60px;
+}
+
+/* ---------- Header ---------- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #16845b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  color: #738078;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ---------- Total card ---------- */
+.total-card {
+  min-width: 245px;
+  padding: 24px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #174d38, #16845b);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(22, 132, 91, 0.15);
+}
+
+.total-card span {
+  color: #d8f1e4;
+  font-size: 14px;
+}
+
+.total-card h2 {
+  margin: 12px 0;
+  font-size: 30px;
+  letter-spacing: -0.6px;
+}
+
+.total-card small {
+  color: #d8f1e4;
+  font-size: 12px;
+}
+
+/* ---------- Panels ---------- */
+.panel {
+  margin-bottom: 24px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e5ece7;
+  border-radius: 16px;
+  box-shadow: 0 8px 26px rgba(25, 60, 42, 0.045);
+}
+
+.panel h2 {
+  margin: 0 0 24px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* ---------- Form ---------- */
+.expense-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.expense-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: #37483e;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.expense-form input,
+.expense-form select {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  color: #26382e;
+  background: #ffffff;
+  border: 1px solid #dce6df;
+  border-radius: 9px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.expense-form input::placeholder {
+  color: #9aa69e;
+}
+
+.expense-form input:focus,
+.expense-form select:focus {
+  border-color: #16845b;
+  box-shadow: 0 0 0 3px rgba(22, 132, 91, 0.1);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Buttons ---------- */
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+}
+
+.form-actions button,
+.row-actions button,
+.section-heading button {
+  min-height: 42px;
+  padding: 0 17px;
+  border: none;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-actions button:not(.secondary) {
+  color: #ffffff;
+  background: #16845b;
+}
+
+.form-actions button:not(.secondary):hover {
+  background: #106b49;
+  transform: translateY(-1px);
+}
+
+.secondary {
+  color: #176b4b;
+  background: #e8f4ed;
+}
+
+.secondary:hover {
+  background: #d7ebdf;
+}
+
+.delete-button {
+  color: #ffffff;
+  background: #d94747;
+}
+
+.delete-button:hover {
+  background: #b92e36;
+}
+
+/* ---------- Feedback message ---------- */
+.message {
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  color: #176b4b;
+  background: #edf8f1;
+  border-radius: 8px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Expense list header ---------- */
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.section-heading h2 {
+  margin: 0;
+}
+
+/* ---------- Table ---------- */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead {
+  background: #f7faf8;
+}
+
+th {
+  padding: 15px 14px;
+  color: #748178;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+td {
+  padding: 16px 14px;
+  color: #34463b;
+  font-size: 14px;
+  border-bottom: 1px solid #edf1ee;
+  white-space: nowrap;
+}
+
+tbody tr {
+  transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+  background: #f8fbf9;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.category {
+  display: inline-block;
+  padding: 6px 11px;
+  color: #176b4b;
+  background: #e8f4ed;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.amount {
+  color: #203d2e;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.row-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.row-actions button {
+  min-height: 34px;
+  padding: 0 12px;
+  font-size: 12px;
+}
+
+.empty {
+  margin: 0;
+  padding: 32px 12px;
+  color: #7b8980;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ---------- Responsive design ---------- */
+@media (max-width: 700px) {
+  .container {
+    width: calc(100% - 24px);
+    padding-top: 24px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .total-card {
+    min-width: 0;
+  }
+
+  .expense-form {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width,
+  .form-actions {
+    grid-column: auto;
+  }
+
+  .panel {
+    padding: 20px 16px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  th,
+  td {
+    padding: 13px 10px;
+  }
+}
+
+.search-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.search-row input {
+  flex: 1;
+  min-width: 160px;
+  padding: 12px;
+  border: 1px solid #dce6df;
+  border-radius: 9px;
+}
+
+.search-result {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f3f8f5;
+  border-radius: 10px;
+}
+
+.search-result p {
+  margin: 10px 0;
+}
